@@ -133,17 +133,18 @@ def ping(host, timeout=1):
             ping_val_list.append(delay)
        time.sleep(1)  # one second
 
-   sucssful_pings = len(ping_val_list) * 1000
+   sucssful_pings = len(ping_val_list)
 
    packet_min = min(ping_val_list) * 1000
 
-   packet_avg = sum(ping_val_list)/sucssful_pings * 1000
+   packet_avg = (sum(ping_val_list)/sucssful_pings) * 1000
 
-   packet_max = max(ping_val_list) * 1000
+   packet_max = (max(ping_val_list)) * 1000
 
-   stdev_var = statistics.stdev(ping_val_list) * 1000
+   stdev_var = (statistics.stdev(ping_val_list)) * 1000
 
    vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)), str(round(packet_max, 2)),str(round(stdev_var, 2))]
+   print(vars)
 
    return vars
 
